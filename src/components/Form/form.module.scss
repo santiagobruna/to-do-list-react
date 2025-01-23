@@ -1,0 +1,18 @@
+$primaryColor: #a94a4a;
+$secondaryColor: #f4d793;
+$light: #fff6da;
+$green: #889e73;
+$color: #D0DDD0;
+$white:  #fff;
+
+.form {
+  background-color: $color ;
+}
+.button {
+    color: $white;
+    background-color: $green;
+    &:hover {
+        color: $white;
+        background-color: #a2bb8b;
+    }
+}
