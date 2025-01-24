@@ -1,5 +1,8 @@
 $secondaryColor: #F0F0D7;
 
 .list {
-    background-color: $secondaryColor;
+    li {
+        background-color: $secondaryColor;
+        margin-bottom: 10px; 
+    }
 }
