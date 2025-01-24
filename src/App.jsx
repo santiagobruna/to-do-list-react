@@ -14,7 +14,8 @@ function App() {
 
   // useEffect para salvar as tarefas no localStorage sempre que o estado mudar
   useEffect(() => {
-    if (tasks.length > 0) { // Se houver tarefas no estado
+    if (tasks.length > 0) {
+      // Se houver tarefas no estado
       localStorage.setItem("tasks", JSON.stringify(tasks)); // Salva as tarefas no localStorage
     }
   }, [tasks]); // Esse efeito será chamado sempre que as tarefas mudarem
@@ -26,6 +27,13 @@ function App() {
   const handleDeleteTask = (taskId) => {
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(updatedTasks);
+    // Se não houver mais tarefas, limpa o localStorage
+    if (updatedTasks.length === 0) {
+      localStorage.removeItem("tasks"); // Remove as tarefas do localStorage
+    } else {
+      // Caso ainda existam tarefas, salva as tarefas no localStorage
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    }
   };
   const handleEditTask = (taskId, newTaskName) => {
     const updatedTasks = tasks.map((task) =>
